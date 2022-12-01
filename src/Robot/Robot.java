@@ -10,26 +10,58 @@ public class Robot {
 	Robot(String nom){
 		this.nom=nom;
 		this.nbVie=10;
-		System.out.println("Robot " +this.nom);
+		//System.out.println("Robot " +this.nom);
 	}
 	
-	public Robot fire(Robot a){
-		Robot R = new Robot();
-		R.nom="Rob 2";
-		R.nbVie=this.nbVie;
+	public void fire(Robot robotAttaque){
+		robotAttaque.nom="Rob 2";
+		/*Robot robotAttaque = new Robot();*/
+		//robotAttaque.="Rob 2";
+		//Robot robotAttaque = new Robot();
+		if(robotAttaque.nbVie<=0) {
+			System.out.println(robotAttaque.nom + " est deja mort");
+		}else {
+			robotAttaque.nbVie -=2;
+			System.out.println(robotAttaque.nom + " a ete touche par le robot " + this.nom);
+			System.out.println("Au " + robotAttaque.nom + " reste " + robotAttaque.nbVie);
+			
+		}
 		
+	
+		
+		
+		//robotAttaque.setNbVie(robotAttaquenbVie()- 2); 
+		//System.out.println(robotAttaque.getNom() + " a ete touche par le robot " + this.nom); 
+		//System.out.println("Au  " + robotAttaque.getNomRobot()  + " il reste " + robotAttaque.getNbreVie()); 
 		//this.nbVie-=R.nbVie;
-		System.out.println(this.nom + " a recu un coup de " + R.nom);
-		System.out.println(this.nom + " Niveau de vie : " + (R.nbVie-2));
+		//System.out.println(this.nom + " a recu un coup de " + R.nom);
+		//System.out.println(this.nom + " Niveau de vie : " + (R.nbVie-2));
+		//System.out.println(this.nom + " Niveau de vie : " + (R.nbVie-2));
 		//System.out.println(this.nbVie);
-		return R;
+		//System.out.println(this.nom + " est envie ? :  " +isDead(this.nbVie));
+		//System.out.println(R.nom + " est envie ? :  " +isDead(R.nbVie));
+		
+
 	}
-	public Boolean isDead() {
-		int a = 0;
+	
+	public Boolean isDead(int a) {
+		//int a <= 0;
 		//public Boolean a;
-		if(a==0) {
-			return true;
-		}return false;
+		if(a<=0) {
+			return false;
+		}return true;
+	}
+	public void setNbVie(int vie) {
+		this.nbVie=vie;
+	}
+	public int getNbVie() {
+		return nbVie;
+	}
+	public void setNom(int vie) {
+		this.nom=nom;
+	}
+	public String getNom() {
+		return nom;
 	}
 	public static void main(String[] args) {
 
@@ -37,6 +69,8 @@ public class Robot {
         Robot bob2 = new Robot();
         
        bob.fire(bob2);
+       bob.fire(bob2);
+       
        
         
         
